@@ -11,12 +11,13 @@ def interface():
             HDL_driver()
             
    
-def HDl_driver():
+def HDL_driver():
     #get input
     HDL = get_input()
     #check if HDL is normal
-    HDL_level = check_HDL()
+    HDL_level = check_HDL(HDL)
     #output
+    return_level(HDL, HDL_level)
 
 def get_input():
     HDL = input("Enter your HDL level: ")
@@ -24,13 +25,15 @@ def get_input():
 
 def check_HDL(HDL):
     if HDL >=60:
-        return HDL_level = "your HDL is normal"
-    elif HDL<60 && HDL>40:
-        return HDL_level = ("your HDL is borderline low"
+         HDL_level = "your HDL is normal"
+    elif 40 <=HDL<60:
+         HDL_level = "your HDL is borderline low"
     else:
-        return HDL_level = "your HDL is low"
+         HDL_level = "your HDL is low"
+    return HDL_level
 
-def return_level():
-    
+def return_level(HDL, HDL_level):
+    print("The HDL result is {}".format(HDL))
+    print("That is {}".format(HDL_level))
     
 interface()
